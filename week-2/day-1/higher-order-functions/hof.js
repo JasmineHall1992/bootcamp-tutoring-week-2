@@ -13,8 +13,17 @@
  *  find(['Alex Aaron', 'Stephanie Cooper', 'Bethany Jones'], function(name){ return name === 'Stephanie Cooper'}); // => 'Stephanie Cooper'
  */
 
-const find = () => {
-    
+//The purpose of the callback function is to find specific elements in the array based on a condtion, when invoked it will return
+//the elements based of the truthiness or falseness? We will return undefinied if no items are found in the condition provided 
+
+const find = (array, func) => {
+    for (let i = 0; i < array.length; i++) {
+        //pass the three arguments into the function
+        if (func(array[i], i, array)) {
+            //return the first element
+            return array[i];
+        }
+    }
 };
 
 /** mapByDataType()
