@@ -69,7 +69,23 @@ const mapByDataType = (array, func, str) => {
  *  }); // => [30, 40];
  * 
  */
-
-const filterByCondition = () => {
-    
-};
+const filterByCondition = (array, condition, test) => {
+    // Create an empty array to store results
+    const newArray = [];
+  
+    // Iterate through the input array
+    for (let i = 0; i < array.length; i++) {
+      // Check if the current index satisfies the condition function
+      if (condition(i, array)) {
+        // If condition is truthy, test the current item
+        if (test(array[i], i, array)) {
+          // Push the current item to the new array
+          newArray.push(array[i]);
+        }
+      }
+    }
+  
+    // Return the new array
+    return newArray;
+  };
+ßß  
