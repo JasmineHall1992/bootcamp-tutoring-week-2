@@ -39,7 +39,16 @@ const find = (array, func) => {
  *  mapByDataType([null, 1, 'a', 2], 'number', function(item){ return item * 10 }, 'number'); // => [10, 20]
  */
 
-const mapByDataType = () => {
+const mapByDataType = (array, func, str) => {
+    const resultArray = [];
+    for (let i = 0; i < array.length; i++) {
+        //determine if the current element matches the input data type
+        if (typeof array[i] === str) {
+            //pass the current element, the index and the array
+            resultArray.push(func(array[i], i , array));
+        }
+    }
+    return resultArray;
    
 };
 
